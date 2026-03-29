@@ -1,0 +1,32 @@
+[project]
+name = "code-context-vault-mcp"
+version = "0.1.0"
+description = "MCP server exposing hybrid search over the code-context-vault pgvector database."
+requires-python = ">=3.12"
+dependencies = [
+    "mcp[cli]>=1.6.0,<2",
+    "langchain-openai>=0.3.0,<1",
+    "pgvector>=0.3,<1",
+    "psycopg[binary]>=3.2,<4",
+    "sqlalchemy>=2.0,<3",
+]
+
+[dependency-groups]
+dev = [
+    "mypy>=1.15.0,<2",
+    "ruff>=0.11.0,<1",
+]
+
+[tool.uv]
+default-groups = ["dev"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
+[tool.ruff.format]
+quote-style = "single"
+indent-style = "space"

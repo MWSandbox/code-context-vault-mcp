@@ -31,14 +31,8 @@ Add to `.vscode/mcp.json` (or user `settings.json`):
 {
   "servers": {
     "code-context-vault": {
-      "type": "stdio",
-      "command": "uv",
-      "args": ["run", "python", "src/server.py"],
-      "cwd": "${workspaceFolder}/code-context-vault-mcp",
-      "env": {
-        "DATABASE_URL": "postgresql+psycopg://postgres:postgres@localhost:5432/code_context_vault",
-        "OPENAI_API_KEY": "${env:OPENAI_API_KEY}"
-      }
+      "type": "sse",
+      "url": "http://127.0.0.1:8000/sse"
     }
   }
 }
